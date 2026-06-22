@@ -3,6 +3,7 @@ import { Sidebar } from './components/layout/Sidebar';
 import { ChatWindow } from './components/layout/ChatWindow';
 import { RightPanel } from './components/layout/RightPanel';
 import { RiskPulseTicker } from './components/risk/RiskPulseTicker';
+import { PitchDeck } from './components/layout/PitchDeck';
 import { listDocsAPI, uploadDocAPI } from './api/client';
 
 const App = () => {
@@ -477,32 +478,35 @@ const App = () => {
           onUpload={handleUploadDocument}
           loadingDocs={loadingDocs}
         />
+        {activeNav === 'pitch' ? (
+          <PitchDeck />
+        ) : (
+          <>
+            {/* Chat container (center) */}
+            <div className="aura-chat-container">
+              <div className="aura-risk-ticker">
+                <RiskPulseTicker alerts={riskAlerts} />
+              </div>
 
-        {/* Chat container (center) */}
-        <div className="aura-chat-container">
-          <div className="aura-risk-ticker">
-            <RiskPulseTicker alerts={riskAlerts} />
-          </div>
+              <div className="aura-chat-content">
+                <ChatWindow 
+                  activeNav={activeNav} 
+                  role={role}
+                  onRoleChange={setRole}
+                />
+              </div>
+            </div>
 
-          <div className="aura-chat-content">
-            <ChatWindow 
-              activeNav={activeNav} 
-              role={role}
-              onRoleChange={setRole}
+            {/* Right panel */}
+            <RightPanel
+              activeNav={activeNav}
+              onNavChange={setActiveNav}
+              documents={documents}
+              selectedDoc={selectedDoc}
+              onSelectDoc={setSelectedDoc}
             />
-          </div>
-
-
-        </div>
-
-        {/* Right panel */}
-        <RightPanel
-          activeNav={activeNav}
-          onNavChange={setActiveNav}
-          documents={documents}
-          selectedDoc={selectedDoc}
-          onSelectDoc={setSelectedDoc}
-        />
+          </>
+        )}
       </div>
     </div>
   );
