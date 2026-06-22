@@ -58,3 +58,4 @@ pyvenv.cfg
 *.swp
 .DS_Store
 Thumbs.db
+*.pptx
