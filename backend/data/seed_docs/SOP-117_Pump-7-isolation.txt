@@ -1,0 +1,163 @@
+VIZAKHAPATNAM STEEL PLANT (RINL)
+STANDARD OPERATING PROCEDURE
+Document No.: SOP-117
+Title: Safe Isolation and Maintenance Procedure for Pump-7 (Hot Metal Transfer Pump)
+Revision: 4
+Date: 2025-03-10
+Approved By: Chief Safety Officer, Plant Engineering Division
+Department: Mechanical Maintenance — Hot Metal Shop
+
+========================================================================
+1. SCOPE AND PURPOSE
+========================================================================
+This procedure covers the complete safe isolation, maintenance, and recommissioning
+of Pump-7, the primary hot metal transfer pump in the Hot Metal Shop (HMS). Pump-7
+operates at temperatures up to 1450°C and pressures of 12 bar. Any failure of
+isolation procedure could result in fatal injury, catastrophic equipment damage,
+or uncontrolled hot metal spillage.
+
+This SOP is mandatory for all maintenance, inspection, or repair activities on Pump-7.
+No work shall begin without a valid Permit to Work (PTW) issued per SOP-089.
+
+========================================================================
+2. APPLICABLE REGULATIONS AND STANDARDS
+========================================================================
+- OSD-110: Occupational Safety in Metallurgical Industries (2022)
+- Factory Act 1948, Section 7A, 31, 36, 38
+- IS 14489:2018 — Safety Colour Codes for Industrial Equipment
+- OISD STD-105: Work Permit System
+- ISO 13849-1: Safety of Machinery — Control Systems
+
+========================================================================
+3. PERSONNEL AND COMPETENCY REQUIREMENTS
+========================================================================
+- Lead Maintenance Engineer: Minimum 5 years experience, NEBOSH IGC certified
+- Safety Observer: Trained in hot metal hazards, authorised by HSE department
+- Isolation Technician: Certified in LOTO (Lockout/Tagout) procedures
+- Minimum team size: 3 persons at all times during isolation activity
+
+Personal Protective Equipment (PPE) Mandatory:
+- Full-face shield (heat-rated, min. 1600°C flash protection)
+- Aluminised proximity suit
+- Heat-resistant gloves (Level D — min. 500°C contact)
+- Safety boots (steel-toe, chemical-resistant)
+- Hard hat with chin strap
+- H2S personal gas detector (calibrated within 30 days)
+
+========================================================================
+4. PRE-WORK CHECKLIST — MUST BE COMPLETED BEFORE ANY ISOLATION
+========================================================================
+Step 1: Obtain PTW
+  1.1 Complete PTW application form (Form HSE-PTW-001)
+  1.2 Identify all energy sources: electrical (11kV), hydraulic, thermal, pneumatic
+  1.3 PTW must be signed by: Permit Issuer (Area Supervisor), Permit Receiver (Lead Eng.), 
+      and Safety Officer
+  1.4 PTW validity: Maximum 8 hours. Must be renewed if work continues beyond validity.
+  1.5 Display PTW at worksite and at pump control panel
+
+Step 2: Communication
+  2.1 Notify Hot Metal Shop Control Room (Ext: 4421) of planned maintenance
+  2.2 Notify adjacent work areas (HMS-B, Torpedo Car Bay) of isolation
+  2.3 Confirm with Blast Furnace 2 cast house that no cast is scheduled for next 6 hours
+
+Step 3: Atmospheric Testing
+  3.1 Test for H2S: Must be < 1 ppm (TLV) before entry
+  3.2 Test for CO: Must be < 25 ppm before entry
+  3.3 Test for O2: Must be 19.5–23.5% before entry
+  3.4 Record readings in Form HSE-ATMOS-003
+  3.5 Continuous gas monitoring required during all work — use fixed detector + personal monitor
+
+========================================================================
+5. ISOLATION PROCEDURE — STEP BY STEP
+========================================================================
+Step 4: Electrical Isolation (LOTO)
+  4.1 Coordinate with Electrical Department (Shift Electrician, contact: Ext. 4312)
+  4.2 De-energise Pump-7 motor at Motor Control Centre (MCC) panel HMS-MCC-07
+  4.3 Lock MCC panel with personal padlock — Lead Engineer holds the key
+  4.4 Apply red LOTO tag: "DANGER — DO NOT OPERATE — Maintenance in Progress"
+  4.5 Apply secondary lock by Safety Observer (each person working on equipment 
+      must apply their own lock — one lock per person rule)
+  4.6 PROVE DEAD: Use approved voltage tester to confirm zero energy at motor terminals
+  4.7 Record in LOTO Register (Form ELE-LOTO-001)
+
+Step 5: Hydraulic and Pneumatic Isolation
+  5.1 Close hydraulic supply valve HV-117-A (located at pump base, east side)
+  5.2 Close hydraulic return valve HV-117-B
+  5.3 Bleed hydraulic pressure via drain valve DV-117 — confirm pressure gauge reads ZERO
+  5.4 Close pneumatic supply valve PV-117-C at instrument air header
+  5.5 Vent pneumatic lines — confirm gauge reads ZERO
+  5.6 Apply isolation padlocks on all hand-operated valves HV-117-A, HV-117-B, PV-117-C
+
+Step 6: Thermal and Process Isolation
+  6.1 Ensure Pump-7 has been idle for minimum 4 hours (thermal cool-down)
+  6.2 Verify pump casing temperature < 80°C using infrared thermometer
+  6.3 Close process isolation valves IV-117-IN (inlet) and IV-117-OUT (outlet)
+  6.4 Install blank flanges on both inlet and outlet pipework (use Class 900 flanges)
+  6.5 Record blank flange installation in Isolation Certificate (Form PROC-ISO-002)
+
+Step 7: Gravitational Energy Control
+  7.1 Install mechanical prop/support under pump body before any disassembly
+  7.2 Ensure no overhead loads (crane, suspended equipment) above work area
+  7.3 Barricade zone: 5-metre radius with red/white barrier tape
+
+========================================================================
+6. MAINTENANCE ACTIVITIES PERMITTED UNDER THIS SOP
+========================================================================
+6.1 Bearing replacement (bearings: SKF 6316-2RS, refer OEM Manual VZ-OEM-P7-2023)
+6.2 Mechanical seal replacement (seal type: John Crane Type 21, high-temp variant)
+6.3 Impeller inspection and re-balancing
+6.4 Pump casing inspection for erosion/corrosion (UT thickness testing required)
+6.5 Motor coupling alignment check and adjustment
+6.6 Instrumentation calibration (flow meter FT-117, temperature transmitter TT-117)
+
+NOT PERMITTED under this SOP:
+- Hot cutting or welding on pump body (requires separate Hot Work Permit, Form HSE-HWP-001)
+- Replacement of pump casing (requires Piping and Vessel SOP-204)
+- Electrical wiring modifications (requires Electrical SOP-156)
+
+========================================================================
+7. RECOMMISSIONING AFTER MAINTENANCE
+========================================================================
+Step 8: Restoration of Isolation
+  8.1 Remove all blank flanges — confirm ALL flanges accounted for in Isolation Certificate
+  8.2 Remove all locks and tags — each person removes their own lock
+  8.3 Lead Engineer confirms all persons are clear of equipment
+  8.4 Restore isolation valves IV-117-IN and IV-117-OUT
+  8.5 Restore hydraulic and pneumatic supplies
+  8.6 Restore electrical supply — remove LOTO in reverse order of application
+  8.7 Electrical Dept confirms restoration in LOTO Register
+
+Step 9: Pre-start Checks
+  9.1 Lubrication: Pump and motor bearings must be lubricated (refer OEM manual VZ-OEM-P7-2023, 
+      Section 4.2 — Shell Gadus S2 grease, 80g per bearing)
+  9.2 Confirm coupling guard reinstalled and secured
+  9.3 Confirm all instrumentation connections restored and calibrated
+  9.4 Perform 30-second jog test — observe for abnormal vibration, noise, or leaks
+  9.5 Start pump under load supervision for minimum 15 minutes before handing over
+
+Step 10: PTW Closure
+  10.1 Sign off PTW as COMPLETE — Permit Receiver and Permit Issuer
+  10.2 File signed PTW in HSE department records (retained 5 years per Factory Act)
+  10.3 Update equipment maintenance register (Form MAINT-REG-2025)
+
+========================================================================
+8. EMERGENCY PROCEDURES
+========================================================================
+8.1 Hot metal spill: EVACUATE immediately via west exit (Emergency Assembly Point EAP-3)
+    Contact: Emergency Response Team (Ext. 4444, or radio channel 7)
+8.2 H2S alarm: Evacuate immediately, do not re-enter without SCBA
+8.3 Electrical contact: Do NOT touch. Isolate supply at MCC. Call 4444.
+8.4 Fire: Activate nearest fire alarm. Evacuate. Do not use water on hot metal.
+    Use dry sand (Sand Box SB-117 located north of pump station)
+
+========================================================================
+9. DOCUMENT HISTORY
+========================================================================
+Rev 1 (2019-06-01): Initial issue
+Rev 2 (2021-02-15): Added H2S monitoring requirement
+Rev 3 (2022-09-20): Updated PPE requirements per OSD-110 (2022)
+Rev 4 (2025-03-10): Added one-lock-per-person rule, blank flange tracking
+
+========================================================================
+END OF SOP-117
+========================================================================

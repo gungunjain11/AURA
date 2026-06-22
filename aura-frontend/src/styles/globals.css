@@ -1,0 +1,16 @@
+/* src/styles/globals.css */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #F7F6F3;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

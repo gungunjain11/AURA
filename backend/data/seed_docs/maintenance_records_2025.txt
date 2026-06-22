@@ -1,0 +1,187 @@
+VIZAKHAPATNAM STEEL PLANT (RINL)
+EQUIPMENT MAINTENANCE REGISTER — 2025
+Document Ref: MAINT-REG-2025
+System: SAP PM / BPSys
+Period: January–June 2025
+Department: Mechanical Maintenance (All Sections)
+
+========================================================================
+SECTION 1: HOT METAL SHOP — MAINTENANCE RECORDS
+========================================================================
+
+EQUIPMENT: Pump-7 (Hot Metal Transfer Pump)
+Equipment ID: HMS-P-007
+Equipment Type: Centrifugal Pump, High-Temperature
+OEM: Weir Minerals, Pump Model: EnviroSeal-HT
+Installation Date: 2017-03-15
+Last Major Overhaul: 2023-08-20
+
+Maintenance History (2025):
+
+Date: 2025-01-15
+WO No.: WO-2025-0089
+Type: Preventive Maintenance (PM)
+Description: 6-monthly routine inspection. Bearing temperature check (normal: <70°C, found 68°C left bearing, 61°C right bearing). Vibration analysis: 3.2 mm/s RMS (acceptable, limit 4.5 mm/s). Lubrication: 80g Shell Gadus S2 applied to each bearing. Coupling alignment: 0.06 mm offset (within 0.1 mm tolerance). Mechanical seal — no visible leakage. Pump performance: flow rate 280 m3/hr (design 290, within 5% tolerance). All OK.
+Tech: B. Rajan, Mech Eng
+Hours: 4 hrs
+Status: COMPLETE
+
+Date: 2025-03-08
+WO No.: WO-2025-0312
+Type: Corrective Maintenance (CM)
+Description: High vibration alarm on Pump-7 motor (vibration reached 5.1 mm/s RMS). Found motor fan cover damaged — debris ingress causing imbalance. Fan cover replaced (spare from stores). Vibration reduced to 2.8 mm/s after replacement. Also found that coupling guard had a hairline crack — replaced preventively.
+Tech: B. Rajan, V. Srinivas
+Hours: 6 hrs (including 2 hrs for PTW)
+PTW No.: PTW-2025-0201
+Status: COMPLETE
+
+Date: 2025-06-18
+WO No.: WO-2025-0887
+Type: Planned Maintenance (from SOP-117)
+Description: Bearing replacement (both bearings — scheduled at 18 months per OEM). Bearings replaced: SKF 6316-2RS (both sides). Old bearings showed incipient pitting on inner race (right bearing) — correct to replace at this interval. Mechanical seal — no visible wear, retained. Pump casing UT thickness testing: minimum measured 12.4 mm (original 18 mm, minimum allowable per OEM is 10 mm — acceptable). All LOTO applied per SOP-117. Recommissioning successful.
+Tech: B. Rajan, T. Muthu, S. Anand
+Hours: 8 hrs
+PTW No.: PTW-2025-0447
+Status: COMPLETE
+
+Next Scheduled PM: 2025-12-18 (6-monthly inspection)
+Next Bearing Replacement: 2026-12-18 (18-monthly)
+PRV (Pressure Relief Valve) last tested: 2024-11-10. Due: 2025-05-10 — OVERDUE BY 45 DAYS as of 2025-06-22.
+Action Required: Schedule PRV bench test — escalated to Area Manager 2025-06-20 (no response yet)
+
+------------------------------------------------------------------------
+
+EQUIPMENT: Blast Furnace 2 (BF2) — Main Cast House Equipment
+Equipment ID: BF-002 (multiple sub-equipment)
+Note: Sub-equipment below listed individually.
+
+Sub-Equipment: BF2 Cooling Water Pump (BF2-CWP-01)
+Type: Centrifugal Pump, Water Duty
+OEM: KSB India, Model: Etanorm 200-150-315
+
+Date: 2025-06-20
+WO No.: WO-2025-0901
+Type: Corrective (unplanned — pump vibration alarm)
+Description: Vibration alarm on BF2-CWP-01 at 07:30. Found mechanical seal weeping (visible water drip from seal housing, approximately 5 drops/minute). Pump isolated and PTW raised. Mechanical seal replacement in progress. Seal type: John Crane Type 21, 65mm shaft. Also found impeller wear ring clearance at 0.8 mm (maximum allowable 0.5 mm) — impeller to be replaced simultaneously.
+Tech: T. Rao, R. Kumar
+Hours: Ongoing
+PTW No.: PTW-2025-0455 (ACTIVE)
+Expected Completion: 2025-06-21 04:00
+Status: IN PROGRESS
+
+Sub-Equipment: BF2 Pressure Relief Valve (PRV) — Tag: BF2-PRV-001
+Type: Spring-loaded PRV, Set Pressure: 18 bar
+Last Tested: 2024-09-15 (bench test, RINL calibration lab)
+Scheduled Test: 2025-03-15 (6-monthly)
+Status: OVERDUE — 99 DAYS overdue as of 2025-06-22
+OSD-110 Clause 12.2 requires 6-monthly testing for high-pressure systems (>15 bar).
+Escalation: WO-2025-1645 raised 2025-06-10. Pending scheduling of maintenance window.
+Risk Note: Operating beyond test date is a Factory Act Section 31 compliance violation.
+
+------------------------------------------------------------------------
+
+EQUIPMENT: Electric Arc Furnace 1 (EAF1) — Electrode Arm Hydraulics
+Equipment ID: EAF-001-HYD
+Type: Hydraulic cylinder system, electrode positioning
+OEM: Danfoss / Bosch Rexroth (cylinders), Atos (hydraulic power unit)
+
+Date: 2025-06-20
+WO No.: WO-2025-0909
+Type: Corrective (hydraulic cylinder leak)
+Description: Hydraulic oil leak from Electrode Arm Position 2 hydraulic cylinder piston rod seal. Oil loss rate estimated 2 litres/hour. Fire risk (hydraulic oil flash point 220°C, EAF operating temperature environment). PTW raised for cylinder replacement. Work ongoing.
+Tech: N. Mehta, R. Garg
+Hours: Ongoing
+PTW No.: PTW-2025-0456 (STATUS: EXPIRED — VIOLATION, see PTW register)
+Status: UNRESOLVED — PTW violation under investigation
+
+========================================================================
+SECTION 2: COKE OVEN PLANT — MAINTENANCE RECORDS
+========================================================================
+
+EQUIPMENT: Coke Battery 3 — Fixed H2S Gas Detector CB3-GD-04
+Equipment ID: CO-GD-CB3-04
+Type: Electrochemical H2S Detector — Detex DX-H2S-4000B
+Installation Date: 2021-08-01
+Calibration Interval: 6 months (OSD-110 requirement)
+
+Maintenance History:
+
+Date: 2024-12-01
+WO No.: WO-2024-2891
+Type: Preventive — Calibration
+Description: 6-monthly calibration. Zero: 0.0 ppm (OK). Span: 5.0 ppm calibration gas applied — unit read 4.9 ppm (within ±0.5 ppm tolerance). PASS. Sensor cell inspected — no discolouration, no visible degradation. Cell age: 3 years 4 months (approaching recommended annual replacement in harsh environments per OEM Chapter 6).
+Tech: K. Narasimha (Instrumentation)
+Calibration Gas Cert: BOC India Cert No. BOC-H2S-2024-8871
+Status: COMPLETE
+Next Calibration Due: 2025-06-01
+
+Date: 2025-06-14
+WO No.: FAULT — No WO raised immediately
+Type: UNPLANNED FAULT
+Description: CB3-GD-04 displayed F01 fault code (Sensor Open Circuit) at approximately 06:00. Shift operator noticed "FAULT" on LCD during routine checks. Fault NOT entered into BPSys until 2025-06-17 17:00 — 3-day delay (see Incident IR-2025-0178).
+Status: PENDING REPAIR/REPLACEMENT
+WO raised post-incident: WO-2025-1892 (Priority: CRITICAL)
+Root Cause (Instrumentation Dept assessment 2025-06-18): Cell open circuit — F01 code. Likely cause: Cell age (4 years in coke oven environment — beyond OEM's recommended annual replacement for harsh environments). Cell total H2S exposure estimated very high over 4-year life. Unit not economically repairable — full replacement recommended.
+Replacement Unit Status: On order — estimated delivery 2025-06-25.
+Interim Measure: Portable H2S detector deployed — NOTE: per PTW-0461 entry, portable detector calibration overdue.
+Status: OPEN — CRITICAL — 8 days and counting
+
+Date: 2025-06-22 — LATEST UPDATE
+CB3-GD-04 Replacement: Delivery rescheduled to 2025-06-27 (supply chain delay).
+Portable monitor reassignment: Second unit (from HMS) deployed at CB3 — calibration: 2025-06-10 (within 30-day limit).
+Safety Clearance for PTW-0461: Accepted by Permit Issuer based on dual portable monitors. Safety Officer objection noted on record.
+
+------------------------------------------------------------------------
+
+EQUIPMENT: Coke Oven Gas Main — Isolation Valve IV-CO3-GOT-07
+Equipment ID: CO-VLV-GOT-07
+Type: Gas Butterfly Valve, Gas Offtake Mainline
+Last Inspection: 2025-06-10 (maintenance walkthrough, no issues noted)
+
+Date: 2025-06-17
+Type: Corrective (post-incident IR-2025-0178)
+Description: Valve seat seal found to have minor gas bypass — H2S odour detected near valve at 21:15. Portable testing confirmed H2S 1.4 ppm at valve body. Valve removed from service, seat seal replaced (seal type: Garlock 3000 compressed graphite). Atmospheric testing post-repair confirmed H2S < 0.2 ppm. Valve returned to service at 23:45.
+Tech: P. Suresh, instrumentation team
+Status: COMPLETE
+
+========================================================================
+SECTION 3: BLAST FURNACE 1 (BF1) — MAINTENANCE RECORDS
+========================================================================
+
+EQUIPMENT: BF1 — Torpedo Car No. TC-07
+Equipment ID: BF1-TC-07
+Type: Torpedo Ladle Car, Hot Metal Transport
+Capacity: 320 tonnes
+
+Date: 2025-02-28
+WO No.: WO-2025-0223
+Type: Scheduled Major Inspection (Annual)
+Description: Annual inspection of torpedo ladle TC-07. Refractory lining thickness measured by ultrasound. Average remaining thickness: 185 mm (minimum allowable per standard: 150 mm). Current lining can support approximately 40 more heats before next relining. Wheels and axles inspected — no cracks. Braking system tested. Ladle tilting mechanism lubricated and tested. PASS.
+Tech: M. Venkatesh, V. Rao
+Status: COMPLETE
+Next Inspection Due: 2026-02-28
+
+========================================================================
+SECTION 4: OVERDUE MAINTENANCE ITEMS — ESCALATION LIST
+========================================================================
+
+As of 2025-06-22, the following safety-critical maintenance items are overdue:
+
+Priority | Equipment           | Item                    | Due Date   | Overdue By | WO No.     | Status
+---------|---------------------|-------------------------|------------|------------|------------|--------
+CRITICAL | CB3-GD-04           | Replacement (F01 fault)  | 2025-06-20 | 2 days     | WO-1892    | Delivery delay
+CRITICAL | EAF1-HYD Electrode 2| PTW violation resolution | 2025-06-20 | 2 days     | N/A        | Under investigation
+HIGH     | BF2-PRV-001         | 6-monthly PRV bench test | 2025-03-15 | 99 days    | WO-1645    | Scheduling pending
+HIGH     | HMS-P-007 PRV       | 6-monthly PRV bench test | 2025-05-10 | 43 days    | None raised| Action required
+MEDIUM   | Coke Oven CB3       | Oven door monthly insp.  | 2025-06-01 | 21 days    | WO-1834    | Scheduled 2025-06-28
+
+========================================================================
+TOTAL MAINTENANCE COMPLETED (Jan–Jun 2025): 1,247 work orders
+BACKLOG (open WOs): 89
+SAFETY-CRITICAL OVERDUE: 5 items
+On-time PM compliance: 87.3% (target: 95%)
+
+========================================================================
+END OF MAINTENANCE REGISTER — CONFIDENTIAL
+Access restricted to: Plant Management, HSE Department, Maintenance Department, Factory Inspector
+========================================================================

@@ -1,0 +1,234 @@
+GOVERNMENT OF INDIA
+MINISTRY OF LABOUR AND EMPLOYMENT
+DIRECTORATE GENERAL FACTORY ADVICE SERVICE AND LABOUR INSTITUTES
+
+OSD-110: OCCUPATIONAL SAFETY STANDARD FOR METALLURGICAL INDUSTRIES
+Edition: 2022 (Third Revision)
+Reference: DGFASLI/OSD/MET/2022/110
+Effective Date: 2022-04-01
+
+This standard applies to all integrated steel plants, electric arc furnace operations,
+coke ovens, blast furnaces, and associated metallurgical facilities operating in India.
+
+========================================================================
+CHAPTER 1: GENERAL REQUIREMENTS
+========================================================================
+
+Clause 1.1 — Scope
+This standard establishes minimum occupational safety requirements for all work activities
+in metallurgical industries including iron and steel manufacturing, coke production,
+rolling mills, and downstream processing facilities.
+
+Clause 1.2 — Legal Basis
+This standard is issued under authority of Section 7A of the Factories Act 1948 and
+is mandatory for all factories defined under Schedule I of the said Act where
+metallurgical processes are carried out.
+
+Clause 1.3 — Definitions
+"Hazardous Zone": Any area where concentration of toxic gases (H2S, CO, SO2, NO2)
+may exceed 50% of TLV-TWA, or where temperature exceeds 150°C, or where pressure
+exceeds 5 bar above atmospheric.
+
+"Competent Person": A person certified by the National Board for Boilers and Pressure
+Vessels or equivalent recognised body to perform inspection or maintenance activities
+on pressure equipment, gas systems, or electrical systems above 1000V.
+
+"Hot Work": Any activity involving open flame, spark-producing operations, grinding,
+welding, cutting, or heating that could ignite flammable or explosive materials.
+
+========================================================================
+CHAPTER 3: PERMIT TO WORK SYSTEM
+========================================================================
+
+Clause 3.1 — Mandatory PTW Activities
+A valid Permit to Work (PTW) must be obtained BEFORE commencement of:
+(a) Any maintenance or inspection activity on equipment handling molten metal
+(b) Entry into any confined space (as defined in Clause 1.3)
+(c) Hot work in any area where flammable or toxic gases may be present
+(d) Electrical work on systems above 1000V
+(e) Work at heights exceeding 2 metres
+(f) Excavation exceeding 1.5 metres depth
+
+Clause 3.2 — PTW Issuance Authority
+PTWs may only be issued by a "Permit Issuer" who:
+(a) Holds current certification in hazard identification and risk assessment
+(b) Has been designated in writing by the Factory Manager
+(c) Is physically present at the worksite before signing the permit
+
+Clause 3.3 — PTW Duration and Renewal
+(a) Maximum PTW duration: 8 hours for hot work, 12 hours for cold work
+(b) PTW must be renewed if work continues beyond expiry — there is NO grace period
+(c) Work must STOP immediately upon PTW expiry if renewal is not obtained
+(d) PTW renewal requires new atmospheric testing, condition verification, and fresh signatures
+
+Clause 3.4 — PTW Documentation
+(a) All PTWs must be documented in a PTW Register maintained at the HSE office
+(b) PTW records must be retained for minimum 5 years
+(c) The PTW register must be reviewed by the Factory Safety Officer weekly
+(d) Monthly summary reports of PTW violations must be submitted to the Factory Inspector
+
+Clause 3.5 — PTW Cancellation
+Any Competent Person or Safety Officer may cancel a PTW immediately if:
+(a) Unsafe conditions develop during work
+(b) The scope of work changes without re-assessment
+(c) PPE is found to be inadequate or not in use
+
+========================================================================
+CHAPTER 6: GAS DETECTION AND MONITORING
+========================================================================
+
+Clause 6.1 — Fixed Gas Detection Systems
+(a) Fixed continuous gas detectors must be installed in all areas where toxic or
+    flammable gases may accumulate, including coke ovens, blast furnace cast houses,
+    hot metal shops, and battery charging areas.
+(b) Required detectors: H2S (alarm at 1 ppm, evacuation at 5 ppm),
+    CO (alarm at 25 ppm, evacuation at 50 ppm),
+    Flammable gas (alarm at 10% LEL, evacuation at 20% LEL)
+(c) Fixed detectors must be calibrated at intervals not exceeding 6 months using
+    certified calibration gas. Calibration records must be maintained.
+(d) Defective fixed detectors must be repaired or replaced within 48 hours.
+    During the downtime period, portable detectors must be deployed as substitute
+    and the area must be monitored continuously by a designated observer.
+
+Clause 6.2 — Portable Gas Detection
+(a) All personnel entering hazardous zones must carry a personal gas detector
+    calibrated within 30 days and bump-tested on day of use.
+(b) Portable detectors must be maintained in accordance with the manufacturer's
+    specifications and calibrated using certified reference gas.
+
+Clause 6.3 — Hot Work in Gas-Hazard Areas
+(a) No hot work permit shall be issued in an area where fixed gas detection is offline
+    UNLESS ALL of the following conditions are simultaneously satisfied:
+    (i)  A continuous personal gas monitoring system is worn by all workers
+    (ii) An independent Safety Observer is stationed with written authority to stop work
+    (iii) Atmospheric testing is conducted at intervals not exceeding 30 minutes
+    (iv) Permit Issuer documents in the PTW the reason for fixed detector unavailability
+         and the compensating measures in place
+(b) If H2S readings exceed 0.8 ppm (80% of TLV) at any point during hot work,
+    work must be suspended until readings return to below 0.5 ppm.
+
+========================================================================
+CHAPTER 7: LOCKOUT/TAGOUT (LOTO) REQUIREMENTS
+========================================================================
+
+Clause 7.1 — LOTO Mandatory Scope
+LOTO must be applied to control ALL energy sources before any maintenance:
+(a) Electrical energy — all voltages
+(b) Hydraulic energy — all pressures
+(c) Pneumatic energy — all pressures
+(d) Thermal energy — steam, hot fluids, hot surfaces >60°C
+(e) Gravitational energy — suspended loads, stored potential energy
+(f) Chemical energy — process fluids under pressure
+
+Clause 7.2 — LOTO Procedure Requirements
+(a) Each worker must apply their own personal padlock to the energy isolation point
+    (one lock per person principle — multiple workers = multiple locks)
+(b) Group LOTO boxes may be used for complex isolation with multiple energy sources
+(c) The person who applies the lock is the ONLY person who may remove it
+(d) LOTO tags must be red with legible text: "DANGER - DO NOT OPERATE"
+(e) Tags must include: person's name, date/time of application, work description
+
+Clause 7.3 — LOTO Verification
+Before work begins, the isolating person must:
+(a) Attempt to start the equipment to verify it will not energise
+(b) Test voltage at electrical isolation points with calibrated voltage tester
+(c) Attempt to operate all isolated valves to verify they cannot be operated
+(d) Record verification in LOTO Register with signature
+
+========================================================================
+CHAPTER 8: PPE REQUIREMENTS FOR METALLURGICAL OPERATIONS
+========================================================================
+
+Clause 8.1 — Minimum PPE for Hot Metal Areas
+All persons entering areas where hot metal, slag, or liquid steel may be present:
+(a) Aluminised or metallised proximity suit (minimum specification: 1600°C radiant heat)
+(b) Heat-resistant gloves, Category III, minimum 500°C contact resistance
+(c) Full-face shield, heat-rated, minimum EN 166 F rated with sideshields
+(d) Safety boots: steel toe, chemical and heat resistant, slip-resistant sole
+(e) Hard hat with chin strap and full brim
+
+Clause 8.2 — PPE for Confined Space Entry
+(a) Full body harness with connection point for retrieval line
+(b) SCBA (self-contained breathing apparatus) where O2 may be deficient or
+    toxic gas levels may exceed IDLH
+(c) Rescue tripod and winch stationed at entry point
+(d) Communication device (intrinsically safe)
+
+Clause 8.3 — PPE Inspection and Maintenance
+(a) All PPE must be inspected before each use
+(b) Heat-resistant clothing must be inspected quarterly for damage, worn areas, or
+    loss of heat-reflective properties
+(c) PPE that fails inspection must be removed from service immediately
+(d) PPE records (issue, inspection, replacement) must be maintained per worker
+
+========================================================================
+CHAPTER 10: INCIDENT REPORTING AND INVESTIGATION
+========================================================================
+
+Clause 10.1 — Mandatory Reporting
+(a) All incidents (including near-misses) must be reported within 2 hours to the
+    Factory Safety Officer using Form RINL-HSE-IR-001
+(b) Fatal and serious injuries must be reported to the Chief Inspector of Factories
+    within 24 hours (per Section 88 of Factories Act 1948)
+
+Clause 10.2 — Incident Investigation
+(a) A formal Root Cause Analysis (RCA) must be completed for:
+    - All incidents resulting in lost time (>1 day)
+    - All incidents with potential for serious injury
+    - All near-miss incidents in hazardous zones
+(b) RCA must use the 5-Why methodology as minimum; Fault Tree Analysis for serious incidents
+(c) RCA report must include corrective actions with owners and deadlines
+(d) RCA reports must be reviewed at monthly Safety Committee meeting
+
+Clause 10.3 — Learning and Sharing
+(a) Safety alerts must be issued for significant incidents within 5 working days
+(b) Lessons learned must be incorporated into relevant SOPs within 30 days
+(c) Training refresher for affected work groups must be conducted within 15 days
+
+========================================================================
+CHAPTER 12: MAINTENANCE MANAGEMENT
+========================================================================
+
+Clause 12.1 — Planned Maintenance
+(a) All pressure vessels, heat exchangers, and rotating machinery must have a documented
+    maintenance schedule based on manufacturer recommendations and risk assessment
+(b) Overdue maintenance items must be escalated to the Plant Manager within 7 days
+(c) Safety-critical equipment (pressure relief valves, gas detectors, fire suppression,
+    emergency shutdown systems) must NOT operate beyond their scheduled maintenance date
+
+Clause 12.2 — Pressure Relief Valve (PRV) Testing
+(a) All PRVs must be bench-tested at intervals not exceeding 12 months, or as per
+    Indian Boiler Regulations, whichever is more stringent
+(b) PRVs on high-pressure systems (>15 bar) must be tested every 6 months
+(c) PRV test records must be maintained and available for inspection
+
+Clause 12.3 — Equipment Inspection Records
+(a) A complete inspection and maintenance history must be maintained for each piece
+    of safety-critical equipment
+(b) Records must be accessible to Factory Inspector on demand
+(c) Records must be retained for the life of the equipment plus 5 years
+
+========================================================================
+APPENDIX A — THRESHOLD LIMIT VALUES (TLV-TWA) FOR COMMON PLANT GASES
+========================================================================
+Gas             TLV-TWA     STEL        IDLH
+H2S             1 ppm       5 ppm       100 ppm
+CO              25 ppm      200 ppm     1200 ppm
+SO2             0.5 ppm     0.25 ppm    100 ppm
+NO2             0.2 ppm     1 ppm       25 ppm
+Benzene         0.5 ppm     2.5 ppm     500 ppm
+Coke Oven Gas   N/A         N/A         Flammable 1.4-6% v/v
+
+========================================================================
+APPENDIX B — REFERENCE STANDARDS
+========================================================================
+IS 14489:2018 — Safety Colour Codes
+OISD STD-105 — Work Permit System (Oil Industry Safety Directorate, 2005)
+ISO 45001:2018 — Occupational Health and Safety Management Systems
+IS 13947:2019 — Specifications for Protective Equipment
+National Electrical Code (NEC) — Equivalent Indian Standard IS 732
+
+========================================================================
+END OF OSD-110 (2022 EDITION)
+For queries: DGFASLI, Government of India, Mumbai — dgfasli.gov.in
+========================================================================

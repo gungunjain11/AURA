@@ -1,0 +1,210 @@
+VIZAKHAPATNAM STEEL PLANT (RINL)
+INCIDENT AND NEAR-MISS LOG — COKE OVEN PLANT
+Document Ref: HSE-INC-CO-2025
+Period: January 2025 — June 2025
+Department: Coke Oven Plant Safety
+Maintained By: Safety Officer — Coke Oven Plant
+
+========================================================================
+INCIDENT REPORT — IR-2025-0089
+========================================================================
+Date: 2025-02-14
+Time: 14:23
+Location: Coke Battery 3, Oven No. 22 (Pushing Platform)
+Type: Near-Miss — Potential H2S Exposure
+Severity Rating: HIGH
+Reported By: Shift Safety Officer T. Krishnan
+Persons Involved: 3 workers (pushing team, names in confidential annex)
+
+Description:
+During a scheduled pushing operation on Coke Battery 3 Oven No. 22, an oven door
+failed to seal properly due to degraded door jamb refractories. Coke oven gas
+(containing H2S, CO, benzene, and light hydrocarbons) was observed leaking from
+the oven door periphery.
+
+The area's fixed H2S detector (CB3-GD-04) was offline at this time — it had been
+sent for scheduled calibration 3 days prior and had not yet been returned to service.
+The pushing team was wearing personal H2S detectors; two of the three workers'
+personal detectors alarmed at readings of 2.1 ppm and 1.9 ppm H2S respectively.
+The third worker's detector did not alarm. Workers evacuated the area immediately
+following detector alarms.
+
+Post-incident atmospheric testing showed peak H2S of 3.8 ppm in the oven door
+leakage zone — well below IDLH (100 ppm) but significantly above TLV (1 ppm).
+
+Workers were medically assessed — no symptoms of H2S exposure noted. All three
+returned to work same shift.
+
+Root Cause (Initial Assessment):
+1. Oven door refractories degraded due to missed quarterly inspection (last inspection
+   was 7 months prior, against a 3-month schedule)
+2. Fixed H2S detector CB3-GD-04 offline simultaneously with hazardous operation
+3. No compensating measures in place for detector downtime (as required by OSD-110 Clause 6.1(d))
+4. Third worker's personal detector had not been bump-tested on day of use
+
+Corrective Actions Raised:
+CA-001: Replace oven door refractories on Oven 22 — DUE: 2025-02-21 — Owner: Mechanical Dept
+CA-002: Implement monthly (not quarterly) oven door inspection schedule — DUE: 2025-03-01 — Owner: Maintenance Planner
+CA-003: Require documented daily bump test for all personal gas detectors in CO Plant — DUE: 2025-02-20 — Owner: Safety Officer
+CA-004: Define compensating measures SOP for fixed detector downtime — DUE: 2025-03-15 — Owner: HSE Dept
+CA-005: Repair or replace CB3-GD-04 within 48 hours of calibration completion — DUE: 2025-02-17 — Owner: Instrumentation Dept
+
+Status: CLOSED — All corrective actions verified complete as of 2025-04-01.
+
+========================================================================
+INCIDENT REPORT — IR-2025-0112
+========================================================================
+Date: 2025-03-08
+Time: 09:45
+Location: Coke Battery 1, Coal Tower Conveyor CV-CO-01
+Type: Near-Miss — Mechanical (caught-in hazard)
+Severity Rating: MEDIUM
+Reported By: Maintenance Supervisor A. Kulkarni
+Persons Involved: 1 worker (name in confidential annex)
+
+Description:
+A maintenance technician was clearing a coal spillage near the tail pulley of
+conveyor CV-CO-01 when the conveyor was inadvertently restarted by a second
+worker in the control cabin who was unaware of the maintenance activity.
+
+The technician was not wearing the required LOTO padlock — he had not formally
+isolated the conveyor before beginning the cleaning task, assuming the short
+duration (<5 min) of the task did not require LOTO. The technician withdrew
+his hand from near the tail pulley immediately upon hearing the conveyor start.
+
+No injury occurred. However, the contact zone between the technician's hand and
+the tail pulley was less than 20 cm at restart.
+
+Root Cause:
+1. LOTO not applied for a maintenance task of any duration — direct violation of OSD-110 Clause 7.1
+2. Inadequate task planning — worker self-assessed task as "too short for LOTO"
+3. No communication between maintenance technician and control cabin operator
+4. Supervisor was not informed of the task initiation
+
+Corrective Actions:
+CA-001: Mandatory LOTO refresher training for all Coke Oven maintenance staff — COMPLETED 2025-03-22
+CA-002: Communication protocol: any conveyor work requires notification to control cabin — COMPLETED 2025-03-15
+CA-003: "Zero energy" safety culture initiative launched across Coke Oven plant — IN PROGRESS
+
+Status: OPEN — CA-003 safety initiative ongoing.
+
+========================================================================
+INCIDENT REPORT — IR-2025-0178
+========================================================================
+Date: 2025-06-17
+Time: 21:15
+Location: Coke Battery 3, Gas Offtake Section
+Type: Near-Miss — Gas Detection Failure During Night Shift
+Severity Rating: CRITICAL
+Reported By: Night Shift Safety Officer M. Pillai
+Persons Involved: 5 workers (pushing team + 1 contract worker)
+
+Description:
+During night-shift pushing operations on Coke Battery 3, a contract worker
+reported smelling a strong odour (rotten egg) in the vicinity of the gas offtake
+mainline, suggesting H2S presence. The olfactory alert was reported to the shift
+supervisor at approximately 21:10.
+
+Investigation revealed:
+1. Fixed H2S detector CB3-GD-04 was OFFLINE (had been offline since 2025-06-14 —
+   3 days at time of incident). The detector's LCD display was showing "FAULT" state.
+2. The fault condition of CB3-GD-04 had not been entered into the maintenance
+   management system (BPSys) until 2025-06-17 17:00 — 3 days after the fault occurred.
+3. No compensating measures (portable detector, safety observer) had been formally
+   arranged per OSD-110 Clause 6.1(d) and CA-004 from IR-2025-0089.
+4. The contract worker was not carrying a personal H2S detector (personal detector
+   assigned to him was found in the site office locker, uncharged).
+5. Night shift supervisor K. Anand was unaware that CB3-GD-04 was offline.
+
+Portable atmospheric testing conducted at 21:25 showed H2S = 1.4 ppm at gas offtake
+mainline isolation valve (above TLV of 1 ppm). Source identified as a minor seal
+leak on isolation valve IV-CO3-GOT-07.
+
+All workers evacuated. Seal leak repaired by 23:45. Atmospheric testing confirmed
+H2S < 0.2 ppm before return to work.
+
+Root Cause (Initial Assessment):
+Primary Cause: Fixed H2S gas detector CB3-GD-04 failure not managed per corrective
+action CA-004 from IR-2025-0089 (same root cause recurred despite prior corrective action).
+
+Contributing Factors:
+1. CB3-GD-04 fault not entered into BPSys for 3 days — delay in notification to safety team and shift supervisors
+2. Corrective Action CA-004 (compensating measures SOP) created on paper but not effectively communicated to night shift supervisors
+3. Contract worker PPE compliance not verified by shift supervisor
+4. Minor valve seal leak on IV-CO3-GOT-07 not identified in last maintenance walkthrough (2025-06-10)
+5. Night shift handover process did not include mention of offline detector status
+
+Immediate Corrective Actions (Night of Incident):
+IA-001: CB3-GD-04 fault ticket escalated to Priority 1 — Instrumentation team to respond within 24 hours
+IA-002: Contract worker management agency notified — PPE compliance audit for all contract workers
+IA-003: Night shift supervisor KPI review for equipment status handover
+
+Formal Corrective Actions (Raised 2025-06-18):
+FCA-001: Mandatory BPSys entry within 4 hours of any safety-critical equipment fault — DUE: 2025-07-01 — Owner: Maintenance Manager
+FCA-002: Automated SMS/email alert to safety team and shift supervisors when CB3-GD-04 (or equivalent) goes offline — DUE: 2025-07-15 — Owner: IT/Instrumentation
+FCA-003: Update shift handover checklist to include equipment status for all gas detectors — DUE: 2025-06-25 — Owner: Production Manager CO
+FCA-004: Retraining of all shift supervisors on compensating measures SOP (procedure from CA-004) — DUE: 2025-06-30 — Owner: HSE Dept
+FCA-005: Mandatory pre-shift PPE inspection for all contract workers — DUE: 2025-06-25 — Owner: Contract Manager
+FCA-006: Replace CB3-GD-04 immediately (unit is beyond economic repair) — WO: WO-2025-1892 — Priority: CRITICAL — DUE: 2025-06-20
+
+Status as of 2025-06-22: OPEN
+CB3-GD-04: STILL OFFLINE — WO-2025-1892 replacement unit on order, ETA 2025-06-25
+FCA-001 through FCA-005: In progress
+
+NOTE: PTW-2025-0461 (hot work on Coke Battery 3, issued 2025-06-22) was issued while
+CB3-GD-04 remains offline. Safety Officer P. Naidu raised objection — overridden by
+Area Supervisor. Refer PTW register entry for details.
+
+========================================================================
+INCIDENT REPORT — IR-2025-0134
+========================================================================
+Date: 2025-04-22
+Time: 11:30
+Location: Coke Battery 3, Coke Side Quench Car Track
+Type: First Aid Injury — Burn
+Severity Rating: LOW (recordable)
+Reported By: Shift Safety Officer T. Krishnan
+Persons Involved: 1 worker
+
+Description:
+A quench car operator sustained a minor burn (approx. 3 cm² area, second degree)
+to the back of his right hand when steam from the quench car nozzle made unexpected
+contact during positioning operation. The operator was wearing heat-resistant gloves
+that had a small tear in the knuckle area, which had not been detected during pre-shift
+inspection.
+
+Treatment: First aid at plant medical centre. No lost time.
+
+Root Cause: Damaged PPE continued in use; inspection checklist for PPE not signed off
+that morning (operator acknowledged signing without checking).
+
+Corrective Action: PPE inspection reinforcement training, new PPE issued.
+Status: CLOSED 2025-05-01.
+
+========================================================================
+INCIDENT STATISTICS — COKE OVEN PLANT 2025 (YTD to June 2025)
+========================================================================
+Total Incidents Reported: 16
+Near-Misses: 9
+First Aid Cases: 4
+Minor Injuries (recordable, no lost time): 2
+Lost Time Injuries: 1
+Fatalities: 0
+
+Most Common Causes:
+1. Gas detection failures or gaps (4 incidents)
+2. LOTO compliance failures (3 incidents)
+3. PPE compliance failures (3 incidents)
+4. Communication breakdown between shifts or departments (2 incidents)
+5. Maintenance backlog / overdue inspection (2 incidents)
+6. Other: 2
+
+Safety Critical Issues Open as of 2025-06-22:
+1. CB3-GD-04 H2S detector offline (IR-2025-0178 — CRITICAL)
+2. PTW-0456 expired permit investigation ongoing
+3. Valve seal IV-CO3-GOT-07 area — post-repair monitoring required
+4. Contract worker PPE audit in progress (FCA-005)
+
+========================================================================
+END OF INCIDENT LOG — FOR HSE AND MANAGEMENT USE ONLY
+========================================================================

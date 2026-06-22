@@ -1,0 +1,151 @@
+VIZAKHAPATNAM STEEL PLANT (RINL)
+PERMIT TO WORK REGISTER — 2025
+Document Ref: HSE-PTW-REG-2025
+Maintained By: HSE Department
+Last Updated: 2025-06-20
+
+========================================================================
+PERMIT TO WORK REGISTER — ACTIVE AND RECENT PERMITS
+========================================================================
+
+PTW-2025-0447
+Date Issued: 2025-06-18
+Date Expires: 2025-06-18 16:00
+Status: CLOSED
+Type: General Maintenance
+Equipment: Pump-7, Hot Metal Shop
+Work Description: Bearing replacement and mechanical seal inspection
+Permit Issuer: A. Krishnamurthy (Area Supervisor, HMS)
+Permit Receiver: B. Rajan (Lead Maintenance Engineer)
+Safety Officer: P. Naidu
+Atmospheric Test: H2S = 0.2 ppm (OK), CO = 8 ppm (OK), O2 = 20.9% (OK)
+LOTO Applied: YES — Ref: LOTO-HMS-2025-0447
+Blank Flanges: 2 installed (IV-117-IN, IV-117-OUT) — confirmed removed at closure
+Notes: Work completed successfully. Pump-7 recommissioned at 15:45.
+
+------------------------------------------------------------------------
+
+PTW-2025-0451
+Date Issued: 2025-06-19
+Date Expires: 2025-06-19 20:00
+Status: CLOSED
+Type: Hot Work
+Equipment: Coke Battery 3 — Oven Door Repair
+Work Description: Welding repair to oven door frame No. 14
+Permit Issuer: K. Rao (Area Supervisor, Coke Oven)
+Permit Receiver: S. Kumar (Welding Supervisor)
+Safety Officer: M. Sharma
+Fire Watcher: YES — D. Patel
+Atmospheric Test: H2S = 0.8 ppm (WARNING — elevated), CO = 15 ppm (OK), O2 = 20.7% (OK)
+H2S Monitor Status: Fixed detector CB3-GD-04 — OFFLINE (reported to instrumentation dept 2025-06-18, repair pending)
+Precautions: Portable H2S detector deployed as temporary measure (Battery life: 8 hrs)
+LOTO Applied: N/A (hot work, area isolated by exclusion zone)
+Notes: Fire watch maintained throughout. H2S detector CB3-GD-04 still offline at work completion.
+       CRITICAL — Instrumentation dept must repair or replace CB3-GD-04 before next hot work.
+       Work Order raised: WO-2025-1892 (Priority: HIGH)
+
+------------------------------------------------------------------------
+
+PTW-2025-0455
+Date Issued: 2025-06-20
+Date Expires: 2025-06-21 06:00
+Status: ACTIVE — ONGOING
+Type: General Maintenance
+Equipment: Blast Furnace 2 — Cooling Water Pump (BF2-CWP-01)
+Work Description: Mechanical seal replacement and impeller inspection
+Permit Issuer: V. Reddy (Area Supervisor, Blast Furnace)
+Permit Receiver: T. Rao (Mechanical Engineer)
+Safety Officer: A. Singh
+Atmospheric Test: H2S = 0.1 ppm (OK), CO = 12 ppm (OK), O2 = 21.0% (OK)
+LOTO Applied: YES — Ref: LOTO-BF-2025-0455
+Notes: Work commenced 2025-06-20 at 14:00. Expected completion: 2025-06-21 04:00.
+
+------------------------------------------------------------------------
+
+PTW-2025-0456
+Date Issued: 2025-06-20
+Date Expires: 2025-06-20 22:00
+Status: OVERDUE — WORK NOT YET SIGNED OFF
+Type: Electrical
+Equipment: Electric Arc Furnace 1 — Electrode Arm Hydraulics
+Work Description: Hydraulic cylinder replacement, electrode arm position 2
+Permit Issuer: R. Gupta (Area Supervisor, EAF)
+Permit Receiver: N. Mehta (Electrical and Hydraulics Engineer)
+Safety Officer: L. Nair
+LOTO Applied: YES — Ref: LOTO-EAF-2025-0456
+Atmospheric Test: H2S = 0 ppm, CO = 5 ppm, O2 = 21.0% (all OK)
+Notes: Permit expired at 22:00. No sign-off received from Permit Receiver.
+       CRITICAL: Work may still be in progress with expired permit.
+       Area Supervisor R. Gupta notified by phone at 22:15 — confirmed work ongoing.
+       Emergency permit extension NOT granted — SOP violation.
+       Escalated to Chief Safety Officer at 22:30.
+
+------------------------------------------------------------------------
+
+PTW-2025-0458
+Date Issued: 2025-06-21
+Date Expires: 2025-06-21 18:00
+Status: ACTIVE
+Type: General Maintenance + Confined Space Entry
+Equipment: Hot Water Tank HWT-03, Utilities Section
+Work Description: Internal inspection and cleaning of hot water storage tank
+Permit Issuer: D. Bhat (Area Supervisor, Utilities)
+Permit Receiver: G. Srinivas (Civil/Mechanical Maintenance)
+Confined Space Entry Permit: CSE-2025-0089 (cross-referenced)
+Safety Officer: F. Ali
+Standby Person: YES — stationed at entry hatch with rescue equipment
+Atmospheric Test (inside tank): H2S = 0 ppm, CO = 0 ppm, O2 = 20.8%, Flammable gas = 0% LEL (all OK)
+LOTO Applied: YES — all inlets, outlets, steam, electrical
+Retrieval Equipment: YES — harness, tripod, winch, SCBA (2 sets)
+Notes: First entry inspection only. No hot work, grinding, or chemicals.
+
+------------------------------------------------------------------------
+
+PTW-2025-0461
+Date Issued: 2025-06-22
+Date Expires: 2025-06-22 20:00
+Status: ACTIVE — IMMINENT EXPIRY
+Type: Hot Work
+Equipment: Coke Battery 3 — Gas Offtake Pipe Bracket
+Work Description: Welding repair to structural bracket supporting gas offtake pipe
+Permit Issuer: K. Rao (Area Supervisor, Coke Oven)
+Permit Receiver: A. Bose (Welding Engineer)
+Safety Officer: P. Naidu
+Fire Watcher: YES
+H2S Monitor Status: CB3-GD-04 STILL OFFLINE (Work Order WO-2025-1892 — repair pending 4 days)
+Portable H2S Monitor: Deployed — last calibration check: 2025-06-15 (DUE FOR RECALIBRATION)
+Atmospheric Test: H2S = 0.4 ppm (OK — but borderline, approaching 1 ppm TLV)
+Notes: COMPOUND RISK IDENTIFIED by Safety Officer at time of issue:
+       1. Fixed H2S detector CB3-GD-04 offline (4 days)
+       2. Portable H2S detector overdue calibration
+       3. Hot work (welding) in H2S-risk zone (coke oven gas environment)
+       4. PTW expiry at 20:00 — work not expected to complete before 21:30
+       Safety Officer recommended postponement. Area Supervisor overrode — work commenced.
+       ESCALATION REQUIRED if work continues beyond 20:00 without renewal.
+
+========================================================================
+SUMMARY — PTW STATUS AS OF 2025-06-22 20:00
+========================================================================
+Total Active Permits: 3 (PTW-0455, PTW-0458, PTW-0461)
+Overdue/Expired: 1 (PTW-0456 — UNRESOLVED)
+Imminently Expiring: 1 (PTW-0461 — expiry at 20:00 today)
+High Priority Safety Issues:
+  1. CB3-GD-04 H2S detector offline — 4 days — Coke Battery 3
+  2. PTW-0456 expired with work ongoing — EAF1 — Under investigation
+  3. PTW-0461 compound risk — hot work + offline H2S monitor + calibration overdue
+
+========================================================================
+OSD-110 COMPLIANCE NOTE:
+========================================================================
+OSD-110 Clause 8.3 requires that no hot work permit be issued in an area where
+fixed gas detection is offline, unless a continuous personal gas monitoring system
+is in operation AND an independent Safety Observer is posted with written authority
+to stop work immediately.
+
+PTW-0451 and PTW-0461 may not meet full OSD-110 Clause 8.3 compliance.
+Compliance review requested — see pending work order WO-2025-1901.
+
+========================================================================
+REGISTER ADMINISTRATOR: HSE Department, Ext. 4405
+EMERGENCY: Ext. 4444 (24-hour)
+========================================================================

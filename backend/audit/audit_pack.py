@@ -1,0 +1,226 @@
+"""
+Audit Pack Generator — produces a compliance evidence report (JSON + DOCX).
+
+Given a topic or query, retrieves all relevant evidence and uses Gemini
+to generate a structured audit-ready document.
+"""
+from __future__ import annotations
+
+import json
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+import google.generativeai as genai
+from docx import Document as DocxDocument
+from docx.shared import Pt, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+
+from config import settings
+from ingestion import vector_store
+
+genai.configure(api_key=settings.GEMINI_API_KEY)
+
+_GENERATION_CONFIG = genai.types.GenerationConfig(
+    temperature=0.1,
+    max_output_tokens=3000,
+)
+
+_AUDIT_PROMPT = """You are AURA Audit Generator, producing a formal compliance evidence report.
+
+Topic: {topic}
+Plant: Vizakhapatnam Steel Plant (RINL)
+Date: {date}
+
+Retrieved Evidence:
+{evidence}
+
+---
+Generate a complete audit pack in JSON:
+{{
+  "title": "<audit report title>",
+  "plant": "Vizakhapatnam Steel Plant (RINL)",
+  "date": "{date}",
+  "topic": "{topic}",
+  "prepared_by": "AURA AI System",
+  "executive_summary": "<2-3 sentence overview>",
+  "scope": "<what was audited>",
+  "standards_checked": ["<standard 1>", "<standard 2>"],
+  "methodology": "AI-assisted document review using RAG",
+  "findings": [
+    {{
+      "finding_id": "F-001",
+      "area": "<area/equipment>",
+      "observation": "<what was found>",
+      "standard_reference": "<relevant standard clause>",
+      "severity": "CRITICAL|MAJOR|MINOR|OBSERVATION",
+      "evidence": "<source document>",
+      "recommendation": "<corrective action>",
+      "target_date": "<ISO date string>"
+    }}
+  ],
+  "positive_observations": ["<what is working well>"],
+  "overall_compliance_score": <0-100 integer>,
+  "conclusion": "<overall assessment paragraph>",
+  "signature_block": {{
+    "generated_by": "AURA v1.0",
+    "timestamp": "{date}",
+    "disclaimer": "This report is AI-generated. Human review required before formal submission."
+  }}
+}}
+
+Return ONLY the JSON. No markdown. No explanation."""
+
+# Where DOCX files are saved
+_OUTPUT_DIR = Path(__file__).parent.parent / "data" / "audit_packs"
+_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _build_docx(report: dict[str, Any]) -> Path:
+    """Convert audit report dict into a formatted DOCX file."""
+    doc = DocxDocument()
+
+    # Title
+    title_para = doc.add_heading(report.get("title", "AURA Audit Report"), level=0)
+    title_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    # Metadata table
+    table = doc.add_table(rows=5, cols=2)
+    table.style = "Table Grid"
+    rows_data = [
+        ("Plant", report.get("plant", "")),
+        ("Date", report.get("date", "")),
+        ("Topic", report.get("topic", "")),
+        ("Prepared By", report.get("prepared_by", "AURA")),
+        ("Overall Compliance Score", f"{report.get('overall_compliance_score', 'N/A')} / 100"),
+    ]
+    for i, (label, value) in enumerate(rows_data):
+        row = table.rows[i]
+        row.cells[0].text = label
+        row.cells[1].text = str(value)
+        run = row.cells[0].paragraphs[0].runs[0]
+        run.bold = True
+
+    doc.add_paragraph()
+
+    # Sections
+    def add_section(heading: str, text: str) -> None:
+        doc.add_heading(heading, level=1)
+        doc.add_paragraph(text)
+
+    add_section("Executive Summary", report.get("executive_summary", ""))
+    add_section("Scope", report.get("scope", ""))
+    add_section("Methodology", report.get("methodology", ""))
+
+    # Standards Checked
+    doc.add_heading("Standards Checked", level=1)
+    for std in report.get("standards_checked", []):
+        doc.add_paragraph(std, style="List Bullet")
+
+    # Findings
+    doc.add_heading("Findings", level=1)
+    for finding in report.get("findings", []):
+        fid = finding.get("finding_id", "F-?")
+        severity = finding.get("severity", "OBSERVATION")
+        doc.add_heading(f"{fid} [{severity}] — {finding.get('area', '')}", level=2)
+
+        details = [
+            ("Observation", finding.get("observation", "")),
+            ("Standard Reference", finding.get("standard_reference", "")),
+            ("Evidence", finding.get("evidence", "")),
+            ("Recommendation", finding.get("recommendation", "")),
+            ("Target Date", finding.get("target_date", "")),
+        ]
+        for label, value in details:
+            para = doc.add_paragraph()
+            run = para.add_run(f"{label}: ")
+            run.bold = True
+            para.add_run(str(value))
+
+    # Positive Observations
+    doc.add_heading("Positive Observations", level=1)
+    for obs in report.get("positive_observations", []):
+        doc.add_paragraph(obs, style="List Bullet")
+
+    # Conclusion
+    add_section("Conclusion", report.get("conclusion", ""))
+
+    # Disclaimer
+    doc.add_heading("Disclaimer", level=1)
+    sig = report.get("signature_block", {})
+    disclaimer_text = (
+        f"Generated by: {sig.get('generated_by', 'AURA v1.0')}\n"
+        f"Timestamp: {sig.get('timestamp', '')}\n\n"
+        f"{sig.get('disclaimer', '')}"
+    )
+    para = doc.add_paragraph(disclaimer_text)
+    for run in para.runs:
+        run.font.size = Pt(9)
+        run.font.color.rgb = RGBColor(0x80, 0x80, 0x80)
+
+    # Save
+    safe_topic = re.sub(r"[^\w\-]", "_", report.get("topic", "audit"))[:40]
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    filepath = _OUTPUT_DIR / f"audit_{safe_topic}_{timestamp}.docx"
+    doc.save(str(filepath))
+    return filepath
+
+
+def generate_audit_pack(topic: str, top_k: int = 10) -> dict[str, Any]:
+    """
+    Generate a complete audit pack for a given topic.
+
+    Returns:
+        {
+            "report": dict,           # structured JSON report
+            "docx_path": str,         # absolute path to generated DOCX
+            "docx_filename": str,     # filename for download
+        }
+    """
+    if not topic.strip():
+        return {"error": "Topic cannot be empty."}
+
+    # Retrieve evidence
+    chunks = vector_store.query(topic, top_k=top_k)
+    if not chunks:
+        return {"error": "No relevant documents found for this topic. Please ingest documents first."}
+
+    evidence_text = "\n\n".join(
+        f"[{c['metadata'].get('source', '?')} | {c['metadata'].get('doc_type', '')}]\n{c['text'][:500]}"
+        for c in chunks
+    )
+
+    now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    prompt = _AUDIT_PROMPT.format(topic=topic, date=now_iso, evidence=evidence_text)
+    model = genai.GenerativeModel(settings.GEMINI_MODEL)
+
+    try:
+        response = model.generate_content(prompt, generation_config=_GENERATION_CONFIG)
+        raw = response.text or "{}"
+        raw = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("```").strip()
+        report = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        return {
+            "error": f"Failed to parse audit report: {exc}",
+            "raw_response": response.text if response else "",
+        }
+    except Exception as exc:
+        return {"error": f"Gemini error: {str(exc)}"}
+
+    # Generate DOCX
+    try:
+        docx_path = _build_docx(report)
+        return {
+            "report": report,
+            "docx_path": str(docx_path),
+            "docx_filename": docx_path.name,
+        }
+    except Exception as exc:
+        # Return JSON even if DOCX fails
+        return {
+            "report": report,
+            "docx_path": None,
+            "docx_filename": None,
+            "docx_error": str(exc),
+        }

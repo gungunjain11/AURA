@@ -1,0 +1,240 @@
+DETEX INSTRUMENTS LTD
+OEM TECHNICAL MANUAL
+Product: Fixed-Point Electrochemical H2S Gas Detector
+Model: DX-H2S-4000 Series
+Manual No.: DX-4000-TM-REV7
+Applicable Units: DX-H2S-4000, DX-H2S-4000B, DX-H2S-4000X (ATEX rated)
+Software Version: 4.2.x
+
+IMPORTANT: Read this manual completely before installing or servicing this equipment.
+Failure to follow instructions may result in personal injury, equipment damage,
+inaccurate gas readings, or loss of life.
+
+========================================================================
+CHAPTER 1: PRODUCT OVERVIEW
+========================================================================
+
+1.1 Description
+The DX-H2S-4000 is a fixed-point, single-gas electrochemical detector designed for
+continuous monitoring of hydrogen sulphide (H2S) in industrial environments. The unit
+provides a 4-20 mA analogue output and Modbus RTU digital output for integration
+with process control systems and safety PLCs.
+
+Operating Range: 0–50 ppm H2S
+Resolution: 0.1 ppm
+Accuracy: ±5% of reading (at full calibration)
+Response Time: T50 < 15 seconds, T90 < 30 seconds
+Alarm Setpoints (factory default): Low = 1 ppm, High = 5 ppm, STEL = 5 ppm (15 min TWA)
+
+1.2 Intended Applications
+- Coke oven gas handling areas
+- Blast furnace tuyere platforms and cast houses
+- Sour water treatment facilities
+- Underground and confined spaces
+- Chemical storage areas
+
+1.3 Principle of Operation
+The electrochemical sensor cell oxidises H2S at a sensing electrode. The resulting
+electrical current is proportional to H2S concentration. The cell is temperature-
+and humidity-compensated via onboard sensors.
+
+Sensor cell life: Typical 24–36 months under normal conditions.
+Cell degradation is accelerated by: high humidity (>90% RH continuously), high H2S
+exposure (>10 ppm continuous), temperature extremes (<-10°C or >50°C), and
+exposure to inhibitory gases (acetylene, ethylene, high concentrations of CO).
+
+========================================================================
+CHAPTER 3: INSTALLATION AND COMMISSIONING
+========================================================================
+
+3.1 Location Selection
+Sensor placement is critical for reliable detection. H2S is heavier than air
+(specific gravity 1.19 vs air = 1.0) and will accumulate in low-lying areas and
+depressions. Detectors should be mounted:
+- 150–300 mm above floor level in enclosed spaces
+- At breathing zone height (1.2–1.5 m) on platforms
+- Near potential leak sources (valves, flanges, pump seals)
+- No closer than 500 mm to air handling ducts or exhaust fans (dilution effect)
+
+3.2 Commissioning Procedure
+Step 1: Verify supply voltage: 24 VDC ±10% (or 110/240 VAC for AC model)
+Step 2: Allow 30-minute warm-up before calibration
+Step 3: Verify sensor reads 0 ppm in fresh air (zero calibration)
+Step 4: Apply certified calibration gas (see Chapter 5)
+Step 5: Verify correct alarm relay operation at Low and High setpoints
+Step 6: Test Modbus/4-20 mA output to connected control system
+Step 7: Complete commissioning record (Appendix B)
+
+========================================================================
+CHAPTER 4: FAULT DIAGNOSIS AND ERROR CODES
+========================================================================
+
+4.1 Fault Display
+The DX-H2S-4000 displays fault conditions on the LCD screen with a flashing "FAULT"
+indicator and a numeric fault code. The 4-20 mA output goes to 2 mA (below 4 mA)
+to indicate a fault condition to connected systems.
+
+4.2 Fault Code Reference Table
+
+Code | Description                       | Likely Cause                          | Action Required
+-----|-----------------------------------|---------------------------------------|------------------
+F01  | Sensor Open Circuit               | Sensor cell disconnected or broken    | Replace sensor cell. Refer 5.3.
+F02  | Sensor Short Circuit              | Sensor cell internal fault            | Replace sensor cell. Refer 5.3.
+F03  | Low Signal — Cell Depleted        | Sensor cell end-of-life              | Replace sensor cell. Cell life exceeded.
+F04  | Calibration Overdue               | Cal interval exceeded (set in menu)   | Perform calibration. Refer Chapter 5.
+F05  | Temperature Out of Range          | Ambient temp <-10°C or >50°C         | Check environment. If within spec, cell fault.
+F06  | Memory Error                      | Internal EEPROM fault                 | Power cycle. If persistent, contact Detex support.
+F07  | Signal Saturated                  | H2S > 50 ppm or inhibitory gas present | Ventilate area. Check for inhibitory gases.
+F08  | Power Supply Undervoltage         | Supply <20 VDC                        | Check cable, power supply. Refer 3.2.
+F09  | Communication Error               | Modbus/output wiring fault            | Check wiring. Refer 6.2.
+F10  | Sensor Inhibited                  | Inhibitory gas detected (acetylene, etc.) | Identify and remove inhibitory gas source.
+
+NOTE: Fault codes F01, F02, F03 require sensor cell replacement. Do NOT attempt to
+operate the unit with these faults — the unit WILL NOT detect H2S reliably.
+
+4.3 Inhibitory Gases
+The electrochemical cell may be inhibited by the following gases:
+- Acetylene: Even brief exposure >100 ppm can permanently inhibit the cell
+- Ethylene: High concentrations (>500 ppm) may cause temporary inhibition
+- High CO concentrations (>200 ppm) may cause cross-sensitivity (+0.3 ppm H2S equivalent per 100 ppm CO)
+
+If the unit has been exposed to inhibitory gases, perform a full zero and span
+calibration. If the cell does not recover within 30 minutes, replace the cell.
+
+========================================================================
+CHAPTER 5: CALIBRATION PROCEDURE
+========================================================================
+
+5.1 Calibration Frequency
+- Routine calibration: Every 6 months (or as required by site regulations, whichever more frequent)
+- OSD-110 (India) requires 6-monthly calibration minimum
+- After any sensor cell replacement
+- After any fault condition involving sensor degradation
+- If unit has been exposed to H2S > 20 ppm for extended periods
+- If unit has been stored or inactive for >3 months
+
+5.2 Required Equipment
+- Certified calibration gas cylinder: 5 ppm H2S in N2 (±2% accuracy, certificate required)
+- Calibration gas regulator and tubing kit (Detex Part No. DX-4000-CAL-KIT)
+- Flow rate: 0.5 L/min ±10%
+- Certified zero gas: Pure N2 or dry clean air <0.1 ppm H2S
+
+5.3 Calibration Steps
+Step 1: ZERO CALIBRATION
+  a. Connect zero gas (N2 or certified clean air) at 0.5 L/min
+  b. Allow reading to stabilise (minimum 2 minutes)
+  c. Press MENU → CALIBRATION → ZERO → CONFIRM
+  d. Unit displays "ZERO OK" when accepted
+  e. If zero drift >1 ppm, suspect cell contamination — replace cell before proceeding
+
+Step 2: SPAN CALIBRATION
+  a. Connect 5 ppm H2S calibration gas at 0.5 L/min
+  b. Allow reading to stabilise (minimum 3 minutes)
+  c. Press MENU → CALIBRATION → SPAN → ENTER TARGET VALUE (5.0) → CONFIRM
+  d. Unit displays "SPAN OK" when accepted
+  e. If unit cannot reach within ±0.5 ppm of target, cell is degraded — replace cell
+
+Step 3: POST-CALIBRATION VERIFICATION
+  a. Remove calibration gas
+  b. Confirm reading returns to 0 ppm within 2 minutes
+  c. Verify all alarm setpoints are still correctly set (re-enters defaults after major calibration)
+  d. Log calibration in site calibration register with: date, tech name, gas cert number, result
+
+5.4 Sensor Cell Replacement
+When to replace:
+- Any F01, F02, F03 fault code
+- Calibration cannot achieve correct span (>±0.5 ppm error on 5 ppm gas)
+- Cell age > 36 months
+- Post-incident cell verification fails
+
+Replacement procedure:
+  a. De-energise unit (lock out power supply)
+  b. Remove weatherproof housing (4 × M4 screws)
+  c. Disconnect sensor cell connector (3-pin JST, gently pull straight out)
+  d. Remove cell retaining clip (slide towards front)
+  e. Withdraw old cell straight outward — avoid lateral force
+  f. IMPORTANT: Record old cell serial number and disposal date in site records
+  g. Insert new cell (Detex Part No. DX-4000-CELL-H2S) — ensure orientation marking aligns
+  h. Reconnect cell connector
+  i. Reassemble housing — torque screws to 1.5 Nm
+  j. Energise unit — perform full calibration per Section 5.3
+
+Compatible replacement cells: DX-4000-CELL-H2S only.
+Use of non-approved cells voids warranty and may produce inaccurate readings.
+Warning: H2S sensor cells contain a small quantity of dilute sulphuric acid. Handle
+with gloves. Dispose as hazardous waste per local regulations.
+
+========================================================================
+CHAPTER 6: MAINTENANCE SCHEDULE
+========================================================================
+
+Interval | Task
+---------|----------------------------------------------------------------------
+Daily    | Visual inspection: LCD readable, no physical damage, no spider/debris in sensor housing
+Monthly  | Bump test: Apply 5 ppm H2S calibration gas, confirm alarm activates within 30 sec
+3-Monthly| Full calibration per Section 5.3
+6-Monthly| Sensor cell inspection (check for discolouration, physical damage, swelling)
+          Clean sensor housing. Check all wiring for corrosion or damage.
+          Verify communication output (Modbus/4-20 mA) to control system.
+Annual   | Complete sensor cell replacement (regardless of apparent condition in harsh environments:
+          coke oven, sour water, blast furnace)
+
+6.1 Maintenance Log
+A maintenance log must be maintained at the detector location and/or in the site CMMS.
+Minimum entries:
+- Date of maintenance
+- Type of maintenance performed
+- Technician name and signature
+- Calibration gas certificate number
+- Result (pass/fail, any anomalies noted)
+- Next maintenance due date
+
+========================================================================
+CHAPTER 7: STORAGE AND TRANSPORT
+========================================================================
+
+7.1 Storage
+If the unit will be inactive for more than 1 month:
+- Store sensor cell in factory-sealed packaging in a cool (10–25°C), dry environment
+- Do not store near volatile chemicals, solvents, or strong acids/bases
+- Activate unit and run full calibration before returning to service
+
+7.2 Prolonged Inactivity
+If the unit has been inactive (powered down) for more than 3 months:
+- The electrochemical cell may have degraded due to electrolyte dry-out
+- Perform full calibration — if span cannot be achieved, replace cell
+- Do NOT assume the unit is reading correctly without calibration after storage
+
+========================================================================
+CHAPTER 8: SPECIFICATIONS
+========================================================================
+Detection Gas:       H2S (Hydrogen Sulphide)
+Measuring Range:     0–50 ppm
+Resolution:          0.1 ppm
+Repeatability:       ±2% of reading
+Temperature Range:   -10°C to +50°C (operating)
+Humidity Range:      15–90% RH non-condensing
+IP Rating:           IP65 (standard), IP67 (X variant)
+Sensor Type:         3-electrode electrochemical
+Sensor Cell Life:    24–36 months (typical)
+Output:              4–20 mA analogue + Modbus RTU (RS-485)
+Alarm Relays:        3 × SPDT (Low alarm, High alarm, Fault)
+Power Supply:        24 VDC ±10% (150 mA)
+Display:             4-digit LCD, ppm and bar graph
+ATEX Rating (X variant): II 2G Ex d IIB T4 Gb (ATEX IECEx certified)
+Weight:              1.2 kg
+
+========================================================================
+CHAPTER 9: WARRANTY AND SUPPORT
+========================================================================
+Warranty: 24 months from date of purchase, sensor cell: 12 months
+Warranty void if: non-approved cell used, unauthorised modifications, incorrect installation,
+exposure to inhibitory gases beyond specification.
+
+Technical Support: support@detex-instruments.com | +44 1234 567890
+Spare Parts: Authorised distributors in India — see website for current list
+Calibration Gas (India): Certified cylinders available from BOC India, Air Liquide India
+
+========================================================================
+END OF OEM MANUAL DX-4000-TM-REV7
+========================================================================
