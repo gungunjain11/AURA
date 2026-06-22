@@ -1,270 +1,123 @@
 # AURA — Asset Understanding & Response AI
-### Backend (Person 1 — Backend Engineer)
-
 > A voice+chat AI copilot for industrial plants — ingest SOPs, PTWs, incident logs, and maintenance records, then query in plain language, detect compliance gaps, run root-cause analysis, and receive proactive risk alerts.
 
 ---
 
-## Stack
-
-| Layer | Technology | Why |
-|---|---|---|
-| API | FastAPI + uvicorn | Async, SSE support, auto-docs |
-| LLM | Gemini 1.5 Flash (free tier) | 1M tokens/day, 15 RPM — no cost |
-| Embeddings | sentence-transformers (all-MiniLM-L6-v2) | Local, free, 384-dim |
-| Vector Store | ChromaDB (persistent) | Local, no cloud required |
-| PDF Parsing | pypdf + pdfplumber | Text + tables |
-| DOCX Output | python-docx | Audit pack generation |
-| Graph | networkx + D3 JSON | Knowledge graph |
-
----
-
-## Quick Start
-
-### 1. Install dependencies
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-### 2. Configure API key
-The `.env` file is already created with your Gemini key.
-To update it:
-```env
-GEMINI_API_KEY=your_key_here
-GEMINI_MODEL=gemini-1.5-flash
-```
-Get a free key at: https://aistudio.google.com
-
-### 3. Seed the knowledge base
-```bash
-python data/seed.py
-```
-This ingests 6 realistic demo documents (SOP, PTW, OSD-110, incident log, OEM manual, maintenance records).
-
-### 4. Start the server
-```bash
-uvicorn main:app --reload --port 8000
-```
-
-### 5. View API docs
-Open: http://localhost:8000/docs
-
----
-
-## API Endpoints
-
-| Method | URL | Description |
-|---|---|---|
-| `POST` | `/ingest` | Upload PDF or TXT |
-| `GET` | `/ingest/docs` | List ingested documents |
-| `GET` | `/query?q=...&role=engineer` | **SSE streaming RAG query** |
-| `GET` | `/query/sync?q=...` | Non-streaming RAG query |
-| `POST` | `/compliance-check` | Compliance gap analysis |
-| `POST` | `/rca` | Root Cause Analysis |
-| `GET` | `/risk-pulse` | Current risk alerts |
-| `POST` | `/risk-pulse/demo` | Inject demo alerts |
-| `POST` | `/audit-pack` | Generate audit pack (JSON + DOCX) |
-| `GET` | `/audit-pack/download/{filename}` | Download DOCX |
-| `GET` | `/graph` | D3 knowledge graph JSON |
-| `GET` | `/health` | Health check |
-
----
-
-## Demo Queries (from Spec)
-
-### Query 1 — Maintenance Q&A
-```bash
-curl "http://localhost:8000/query/sync?q=What+is+the+safe+isolation+procedure+for+Pump-7+before+maintenance&role=engineer"
-```
-
-### Query 2 — Compliance Check
-```bash
-curl -X POST http://localhost:8000/compliance-check \
-  -H "Content-Type: application/json" \
-  -d '{"doc_name": "PTW_register_2025.txt"}'
-```
-
-### Query 3 — RCA
-```bash
-curl -X POST http://localhost:8000/rca \
-  -H "Content-Type: application/json" \
-  -d '{"incident": "We had a gas detector miss last Tuesday near coke battery 3 — why?"}'
-```
-
-### Query 4 — Hot Work Risk Query
-```bash
-curl "http://localhost:8000/query/sync?q=What+do+we+know+about+hot+work+near+elevated+H2S+zones&role=safety_officer"
-```
-
-### Audit Pack
-```bash
-curl -X POST http://localhost:8000/audit-pack \
-  -H "Content-Type: application/json" \
-  -d '{"topic": "PTW register OSD-110 compliance"}'
-```
-
-### Risk Pulse (with demo data)
-```bash
-# Inject demo alerts first
-curl -X POST http://localhost:8000/risk-pulse/demo
-
-# Get alerts
-curl http://localhost:8000/risk-pulse
-```
-
-### Knowledge Graph
-```bash
-curl http://localhost:8000/graph
-```
-
----
-
-## SSE Streaming (Query Endpoint)
-
-The `/query` endpoint streams using Server-Sent Events.
-
-**Event types:**
-- `citation` — JSON array of retrieved source documents (emitted first)
-- `token` — individual text tokens (streamed)
-- `done` — signals completion
-- `error` — error message
-
-**JavaScript example:**
-```javascript
-const evtSource = new EventSource(
-  `http://localhost:8000/query?q=${encodeURIComponent(query)}&role=engineer`
-);
-
-evtSource.addEventListener('citation', (e) => {
-  const citations = JSON.parse(e.data);
-  renderCitations(citations);
-});
-
-evtSource.addEventListener('token', (e) => {
-  appendToChat(e.data);
-});
-
-evtSource.addEventListener('done', () => evtSource.close());
-evtSource.addEventListener('error', (e) => console.error(e.data));
-```
-
----
-
 ## Project Structure
-
-```
-backend/
-├── main.py                    # FastAPI app entry point
-├── config.py                  # Settings from .env
-├── requirements.txt
-├── .env                       # API keys (do not commit!)
-├── .env.example               # Template for new devs
-│
-├── ingestion/
-│   ├── pdf_chunker.py         # PDF/TXT → overlapping chunks with metadata
-│   ├── embedder.py            # sentence-transformers (local, free)
-│   └── vector_store.py        # ChromaDB wrapper (persistent)
-│
-├── agents/
-│   ├── rag_agent.py           # RAG + Gemini streaming SSE
-│   ├── compliance_agent.py    # Compliance gap analysis (Gemini)
-│   ├── rca_agent.py           # Root cause analysis (5-Why + Fault Tree)
-│   └── risk_pulse.py          # Background 30-min scan + alert queue
-│
-├── audit/
-│   └── audit_pack.py          # Audit report generator (JSON + DOCX)
-│
-├── graph/
-│   └── knowledge_graph.py     # D3 graph builder (equipment/doc/risk nodes)
-│
-├── routers/
-│   ├── ingest.py
-│   ├── query.py
-│   ├── compliance.py
-│   ├── rca.py
-│   ├── risk_pulse.py
-│   ├── audit.py
-│   └── graph.py
-│
-├── data/
-│   ├── seed.py                # Run once to populate ChromaDB
-│   ├── seed_docs/             # 6 realistic demo documents
-│   └── audit_packs/           # Generated DOCX files (auto-created)
-│
-└── chroma_db/                 # Persistent vector store (auto-created)
+The project is organized as a monorepo containing both the backend service and the web frontend client:
+```text
+AURA/
+├── backend/          # FastAPI backend server
+└── aura-frontend/    # React + Vite + D3 web client
 ```
 
 ---
 
-## Roles Supported
+## 1. Backend Service (`backend/`)
 
-| Role | Persona |
-|---|---|
-| `engineer` | Technical precision, cites SOP sections |
-| `safety_officer` | Regulatory focus, severity levels |
-| `field_tech` | Step-by-step, PPE first |
+### Stack
+*   **API:** FastAPI + uvicorn (SSE streaming, auto docs)
+*   **LLM:** Gemini 1.5 Flash (1M token context window)
+*   **Embeddings:** sentence-transformers (local `all-MiniLM-L6-v2`)
+*   **Vector Store:** ChromaDB (local, persistent)
+*   **PDF Parsing:** pypdf + pdfplumber
+*   **DOCX Output:** python-docx
+*   **Graph Engine:** networkx
 
----
-
-## Architecture Diagram
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    AURA Backend (FastAPI)                   │
-│                                                             │
-│  PDF/TXT Upload                                             │
-│       │                                                     │
-│  ┌────▼──────────┐    ┌───────────────────────────────────┐ │
-│  │ PDF Chunker   │    │         ChromaDB                  │ │
-│  │ (pypdf +      │───▶│    (persistent vector store)     │  │
-│  │  pdfplumber)  │    │    collection: "documents"        │ │
-│  └────────────┬──┘    └───────────────┬───────────────────┘ │
-│               │                       │                     │
-│  ┌────────────▼──┐                    │                     │
-│  │  Embedder     │                    │ semantic search     │
-│  │  (MiniLM-L6)  │                    │                     │
-│  └───────────────┘                    │                     │
-│                                       │                     │
-│  ┌────────────────────────────────────▼─────────────────┐   │
-│  │                    Gemini 1.5 Flash                  │   │
-│  │  ┌──────────┐  ┌─────────────┐  ┌────────────────┐   │   │
-│  │  │ RAG Agent│  │  Compliance │  │   RCA Agent    │   │   │
-│  │  │(SSE str.)│  │    Agent    │  │ (5-Why + FTA)  │   │   │
-│  │  └──────────┘  └─────────────┘  └────────────────┘   │   │
-│  │  ┌──────────┐  ┌─────────────┐                       │   │
-│  │  │ Audit    │  │ Risk Pulse  │ (background, 30 min)  │   │
-│  │  │  Pack    │  │   Scanner   │                       │   │
-│  │  └──────────┘  └─────────────┘                       │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                             │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │               Knowledge Graph Builder                 │  │
-│  │  equipment (purple) → documents (teal) → risks (amber)│  │
-│  │    → D3-compatible JSON for frontend                  │  │
-│  └───────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-```
+### Setup & Local Run
+1.  Navigate to the backend directory:
+    ```bash
+    cd backend
+    ```
+2.  Install python dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  Configure your API key in a `.env` file (git-ignored for security):
+    ```env
+    GEMINI_API_KEY=your_gemini_api_key_here
+    GEMINI_MODEL=gemini-1.5-flash
+    ```
+4.  Seed the vector database with demo documentation (run once):
+    ```bash
+    python data/seed.py
+    ```
+5.  Start the FastAPI server:
+    ```bash
+    uvicorn main:app --reload --port 8000
+    ```
+    *API documentation will be available at:* http://localhost:8000/docs
 
 ---
 
-## Gemini API Free Tier Limits
+## 2. Frontend Client (`aura-frontend/`)
 
-| Metric | Limit |
-|---|---|
-| Requests per minute | 15 RPM |
-| Tokens per day | 1,000,000 |
-| Context window | 1M tokens |
+### Stack
+*   **Core:** React + ReactDOM
+*   **Bundler & Dev Server:** Vite
+*   **Graph Engine:** D3.js (forces physics, zoom/pan)
+*   **Aesthetics:** Harmonious navy and burnt-orange color themes, glassmorphism, pulse micro-animations
 
-For a demo/PS8 presentation with 4 sample queries, this is more than sufficient.
+### Setup & Local Run
+1.  Navigate to the frontend directory:
+    ```bash
+    cd aura-frontend
+    ```
+2.  Install Node dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the local Vite development server:
+    ```bash
+    npm run dev
+    ```
+    *The web client will be running at:* http://localhost:3000
 
 ---
 
-## Notes for Person 2 (Frontend)
+## 3. Vercel Deployment (Frontend)
 
-- **CORS**: Open (`*`) — no configuration needed
-- **Base URL**: `http://localhost:8000`
-- **SSE streaming**: `/query?q=...&role=...` — use EventSource API
-- **Knowledge graph**: `/graph` returns D3 JSON with `nodes[]` and `links[]`
-- **Risk alerts**: `/risk-pulse` — poll every 30 seconds or so
-- **Demo data**: Call `POST /risk-pulse/demo` once to pre-populate alerts
+The frontend is a static React application built using Vite. To deploy it to **Vercel**:
+
+### Step-by-Step Deployment
+1.  Push this repository to your GitHub account (see instructions below).
+2.  Log in to your [Vercel Dashboard](https://vercel.com/) and click **Add New** > **Project**.
+3.  Import your GitHub repository.
+4.  Under the **Configure Project** settings, configure the following:
+    *   **Root Directory:** Select `aura-frontend`.
+    *   **Framework Preset:** Select **Vite** (Vercel will usually auto-detect this).
+    *   **Build Command:** `npm run build`
+    *   **Output Directory:** `dist`
+5.  Add the **Environment Variables** (see below).
+6.  Click **Deploy**.
+
+### Environment Variables on Vercel
+Add the following key in Vercel's Environment Variables setting panel:
+
+*   **`VITE_API_BASE_URL`**: The HTTPS URL of your deployed backend service (e.g. `https://your-backend-api.railway.app`).
+
+> [!WARNING]
+> **Mixed Content Blocking Warning:** If you deploy your frontend to Vercel (which runs on secure HTTPS) but attempt to connect to a local backend running on `http://localhost:8000` (unsecure HTTP), your web browser will block the requests due to Mixed Content policies.
+> To resolve this, either:
+> 1. Run Vite locally (`npm run dev`) when testing against a local backend, OR
+> 2. Host your FastAPI backend service on a public host (like Railway, Render, or fly.io) which provides a secure `https://...` endpoint, and set Vercel's `VITE_API_BASE_URL` to that public URL.
+
+---
+
+## 4. GitHub Upload Instructions
+
+If you want to push this project to a new repository on GitHub:
+
+1.  Create an empty repository on GitHub.com (do **not** check "Add a README" or "Add .gitignore").
+2.  Open your terminal in the root directory (`C:\Users\AASHI JAIN\OneDrive\Documents\AURA`) and run:
+    ```bash
+    # Rename branch to main
+    git branch -M main
+
+    # Link the remote repository
+    git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+
+    # Push to GitHub
+    git push -u origin main
+    ```
+    *Note: Replace `YOUR_GITHUB_USERNAME` and `YOUR_REPOSITORY_NAME` with your actual GitHub details.*
